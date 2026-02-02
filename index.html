@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Website under construction. Something great is coming soon." />
 
-  <!-- Google Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
@@ -20,11 +19,7 @@
       --accent: #6cf2c2;
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       min-height: 100vh;
@@ -41,24 +36,10 @@
       backdrop-filter: blur(14px);
       border-radius: 20px;
       padding: 3rem 3.5rem;
-      max-width: 520px;
+      max-width: 560px;
       text-align: center;
       box-shadow: 0 20px 60px rgba(0,0,0,0.35);
-      animation: fadeIn 1.2s ease;
-    }
-
-    h1 {
-      font-size: 2.4rem;
-      font-weight: 600;
-      margin-bottom: 1rem;
-      letter-spacing: -0.5px;
-    }
-
-    p {
-      font-size: 1.05rem;
-      line-height: 1.6;
-      color: var(--muted);
-      margin-bottom: 2.2rem;
+      animation: fadeIn 1.0s ease;
     }
 
     .status {
@@ -70,7 +51,65 @@
       text-transform: uppercase;
       background: rgba(108, 242, 194, 0.15);
       color: var(--accent);
-      margin-bottom: 1.2rem;
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      font-size: 2.4rem;
+      font-weight: 600;
+      margin-bottom: 0.8rem;
+      letter-spacing: -0.5px;
+    }
+
+    p {
+      font-size: 1.05rem;
+      line-height: 1.6;
+      color: var(--muted);
+      margin-bottom: 1.6rem;
+    }
+
+    /* --- iOS-style loader (12 fading ticks) --- */
+    .ios-loader {
+      width: 44px;
+      height: 44px;
+      margin: 0 auto 1.4rem;
+      position: relative;
+    }
+
+    .ios-loader div {
+      transform-origin: 22px 22px;
+      animation: iosFade 1.0s linear infinite;
+    }
+
+    .ios-loader div::after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 5px;
+      left: 20px;
+      width: 4px;
+      height: 10px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.92);
+      box-shadow: 0 0 14px rgba(108, 242, 194, 0.12);
+    }
+
+    .ios-loader div:nth-child(1)  { transform: rotate(0deg);   animation-delay: -0.916s; }
+    .ios-loader div:nth-child(2)  { transform: rotate(30deg);  animation-delay: -0.833s; }
+    .ios-loader div:nth-child(3)  { transform: rotate(60deg);  animation-delay: -0.750s; }
+    .ios-loader div:nth-child(4)  { transform: rotate(90deg);  animation-delay: -0.666s; }
+    .ios-loader div:nth-child(5)  { transform: rotate(120deg); animation-delay: -0.583s; }
+    .ios-loader div:nth-child(6)  { transform: rotate(150deg); animation-delay: -0.500s; }
+    .ios-loader div:nth-child(7)  { transform: rotate(180deg); animation-delay: -0.416s; }
+    .ios-loader div:nth-child(8)  { transform: rotate(210deg); animation-delay: -0.333s; }
+    .ios-loader div:nth-child(9)  { transform: rotate(240deg); animation-delay: -0.250s; }
+    .ios-loader div:nth-child(10) { transform: rotate(270deg); animation-delay: -0.166s; }
+    .ios-loader div:nth-child(11) { transform: rotate(300deg); animation-delay: -0.083s; }
+    .ios-loader div:nth-child(12) { transform: rotate(330deg); animation-delay: 0s; }
+
+    @keyframes iosFade {
+      0% { opacity: 1; }
+      100% { opacity: 0; }
     }
 
     .footer {
@@ -80,23 +119,19 @@
     }
 
     @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(12px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(10px); }
+      to   { opacity: 1; transform: translateY(0); }
     }
 
     @media (max-width: 480px) {
-      .card {
-        padding: 2.2rem;
-      }
-      h1 {
-        font-size: 2rem;
-      }
+      .card { padding: 2.2rem; }
+      h1 { font-size: 2rem; }
+    }
+
+    /* Respect reduced-motion settings */
+    @media (prefers-reduced-motion: reduce) {
+      .card { animation: none; }
+      .ios-loader div { animation: none; opacity: 0.65; }
     }
   </style>
 </head>
@@ -104,15 +139,20 @@
 <body>
   <div class="card">
     <div class="status">In Progress</div>
+
+    <div class="ios-loader" aria-label="Loading" role="status">
+      <div></div><div></div><div></div><div></div><div></div><div></div>
+      <div></div><div></div><div></div><div></div><div></div><div></div>
+    </div>
+
     <h1>Something cool is coming ✨</h1>
     <p>
       This website is currently under construction.
       I’m building something thoughtful, clean, and useful.
       Check back soon.
     </p>
-    <div class="footer">
-      © 2026 • Built with care
-    </div>
+
+    <div class="footer">© 2026 • Built with care</div>
   </div>
 </body>
 </html>
