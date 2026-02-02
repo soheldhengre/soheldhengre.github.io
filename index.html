@@ -1,11 +1,118 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8" />
-    <title>My Website</title>
-  </head>
-  <body>
-    <h1>🚀 Hello, my site is live</h1>
-    <p>Hosted on GitHub Pages</p>
-  </body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Coming Soon</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Website under construction. Something great is coming soon." />
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0f1220;
+      --card: rgba(255, 255, 255, 0.08);
+      --text: #ffffff;
+      --muted: #b5b8d6;
+      --accent: #6cf2c2;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      background: radial-gradient(circle at top, #1b1f3b, var(--bg));
+      color: var(--text);
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .card {
+      background: var(--card);
+      backdrop-filter: blur(14px);
+      border-radius: 20px;
+      padding: 3rem 3.5rem;
+      max-width: 520px;
+      text-align: center;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+      animation: fadeIn 1.2s ease;
+    }
+
+    h1 {
+      font-size: 2.4rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      letter-spacing: -0.5px;
+    }
+
+    p {
+      font-size: 1.05rem;
+      line-height: 1.6;
+      color: var(--muted);
+      margin-bottom: 2.2rem;
+    }
+
+    .status {
+      display: inline-block;
+      padding: 0.45rem 0.9rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: rgba(108, 242, 194, 0.15);
+      color: var(--accent);
+      margin-bottom: 1.2rem;
+    }
+
+    .footer {
+      font-size: 0.85rem;
+      color: var(--muted);
+      opacity: 0.7;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .card {
+        padding: 2.2rem;
+      }
+      h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="card">
+    <div class="status">In Progress</div>
+    <h1>Something cool is coming ✨</h1>
+    <p>
+      This website is currently under construction.
+      I’m building something thoughtful, clean, and useful.
+      Check back soon.
+    </p>
+    <div class="footer">
+      © 2026 • Built with care
+    </div>
+  </div>
+</body>
 </html>
